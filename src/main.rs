@@ -10,9 +10,10 @@ fn fahrenheit_to_celcius(f: f64) -> f64 {
 
 fn main() {
     loop {
-        println!("Which value you want to convert");
+        println!("Choose an option");
         println!("1. Celcius to fahrenheit");
         println!("2. Fahrenheit to celcius");
+        println!("3. Quit");
 
         let mut option = String::new();
 
@@ -56,6 +57,8 @@ fn main() {
             println!("");
             println!("Temperature in celcius: {celcius}");
             println!("");
+        } else if number == 3 {
+            break;
         }
     }
 }
