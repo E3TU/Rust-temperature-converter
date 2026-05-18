@@ -16,10 +16,46 @@ fn main() {
 
         let mut option = String::new();
 
-        io::stdin().read_line(&mut option).expect("Failed to read line");
+        io::stdin()
+            .read_line(&mut option)
+            .expect("Failed to read line");
 
         let number: i32 = option.trim().parse().expect("Please enter a valid integer");
 
-        println!("you entered, {number}");
+        if number == 1 {
+            println!("Enter temperature in celcius");
+            let mut celcius = String::new();
+
+            io::stdin()
+                .read_line(&mut celcius)
+                .expect("Failed to read line");
+
+            let celcius: f64 = celcius.trim().parse().expect("Please enter a valid number");
+
+            let fahrenheit: f64;
+
+            fahrenheit = celcius_to_fahrenheit(celcius);
+
+            println!("");
+            println!("Temperature in fahrenheit: {fahrenheit}");
+            println!("");
+        } else if number == 2 {
+            println!("Enter temperature in fahrenheit");
+            let mut fahrenheit = String::new();
+
+            io::stdin()
+                .read_line(&mut fahrenheit)
+                .expect("Failed to read line");
+
+            let fahrenheit: f64 = fahrenheit.trim().parse().expect("Enter a valid number");
+
+            let celcius: f64;
+
+            celcius = fahrenheit_to_celcius(fahrenheit);
+
+            println!("");
+            println!("Temperature in celcius: {celcius}");
+            println!("");
+        }
     }
 }
